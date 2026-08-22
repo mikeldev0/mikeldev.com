@@ -31,6 +31,8 @@ import myPhoto from "/public/photo.webp";
   const HEADER_COMPACT_HEIGHT = 64;
   const DOCK_SCROLL_THRESHOLD = 36;
   const AVATAR_BASE_SIZE = 144;
+  const AVATAR_TRANSITION =
+    "transform 520ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease-out";
 
   const avatar = document.getElementById("scroll-linked-avatar");
   const heroAnchor = document.querySelector(HERO_ANCHOR_SELECTOR);
@@ -42,6 +44,7 @@ import myPhoto from "/public/photo.webp";
     let headerBox: AvatarBox | null = null;
     let isDocked = false;
     let ticking = false;
+    let transitionReady = false;
 
     const getAnchorPageBox = (element: Element): AvatarBox => {
       const rect = element.getBoundingClientRect();
@@ -68,9 +71,17 @@ import myPhoto from "/public/photo.webp";
     const applyBox = (box: AvatarBox, docked: boolean) => {
       const scale = box.size / AVATAR_BASE_SIZE;
 
+      avatar.style.transition = transitionReady ? AVATAR_TRANSITION : "none";
       avatar.style.transform = `translate3d(${box.left}px, ${box.top}px, 0) scale(${scale})`;
       avatar.style.borderRadius = docked ? "999px" : "28px";
       avatar.style.opacity = docked ? "0.96" : "1";
+
+      if (!transitionReady) {
+        requestAnimationFrame(() => {
+          transitionReady = true;
+          avatar.style.transition = AVATAR_TRANSITION;
+        });
+      }
     };
 
     const sync = () => {
@@ -109,8 +120,7 @@ import myPhoto from "/public/photo.webp";
     avatar.style.width = `${AVATAR_BASE_SIZE}px`;
     avatar.style.height = `${AVATAR_BASE_SIZE}px`;
     avatar.style.transformOrigin = "top left";
-    avatar.style.transition =
-      "transform 520ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease-out";
+    avatar.style.transition = "none";
     avatar.style.overflow = "hidden";
     avatar.style.willChange = "transform, opacity";
 

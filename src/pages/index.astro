@@ -20,15 +20,21 @@ import myPhoto from "/public/photo.webp";
   title="mikeldev | Mikel Echeverria - Backend & Full Stack Engineer"
   description="mikeldev es el portafolio profesional de Mikel Echeverria, Backend & Full Stack Engineer especializado en arquitectura de APIs, sistemas escalables e IA."
 />
+<script is:inline>
+  if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    document.documentElement.classList.add("hero-motion-armed", "page-motion-armed");
+  }
+</script>
 <main
   class="max-w-3xl mx-auto px-6 text-zinc-900 transition-colors duration-300 dark:text-zinc-100"
 >
-  <SectionContainer class="pt-32 pb-20 sm:pt-48 sm:pb-32 lg:pt-64 lg:pb-40">
-    <div
-      class="flex flex-col items-start gap-y-12 animate-in fade-in slide-in-from-bottom-4 duration-1000"
-    >
-      <div class="flex flex-col items-start gap-y-6 sm:flex-row sm:items-center sm:gap-x-8">
-        <div id="hero-avatar-anchor" class="relative size-28 shrink-0 rounded-[28px] sm:size-36">
+  <SectionContainer class="pt-28 pb-20 sm:pt-40 sm:pb-28 lg:pt-64 lg:pb-40">
+    <div id="hero-motion" class="flex flex-col items-start gap-y-10 sm:gap-y-12">
+      <div class="flex flex-col items-start gap-y-6 lg:flex-row lg:items-center lg:gap-x-8">
+        <div
+          id="hero-avatar-anchor"
+          class="relative size-28 shrink-0 rounded-[28px] sm:size-32 lg:size-36"
+        >
           <Image
             id="hero-avatar-fallback"
             class="size-full rounded-[28px] object-cover object-center shadow-2xl shadow-zinc-900/20 dark:shadow-black/40"
@@ -43,11 +49,12 @@ import myPhoto from "/public/photo.webp";
         </div>
         <div class="min-w-0 space-y-2">
           <h1
-            class="max-w-full text-4xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-100 sm:text-7xl"
+            class="max-w-full break-words text-4xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-100 sm:text-5xl lg:text-7xl"
           >
-            <span data-i18n="hero.hello">Mikel Echeverria</span>
+            <span data-i18n="hero.hello" data-hero-split>Mikel Echeverria</span>
             <span
               class="mt-2 block text-sm font-bold tracking-[0.2em] text-[var(--ink-muted)] sm:text-base"
+              data-hero-fade="brand"
             >
               mikeldev
             </span>
@@ -55,13 +62,15 @@ import myPhoto from "/public/photo.webp";
           <div
             class="flex max-w-full items-center gap-x-2.5 text-[11px] font-bold tracking-widest text-emerald-600 dark:text-emerald-400/90 uppercase"
           >
-            <span class="relative flex h-2 w-2">
+            <span class="hero-availability-dot relative flex h-2 w-2" data-hero-fade="availability">
               <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                class="hero-availability-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
               ></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span data-i18n="badge.available">Disponible para trabajar</span>
+            <span data-i18n="badge.available" data-hero-fade="availability">
+              Disponible para trabajar
+            </span>
           </div>
         </div>
       </div>
@@ -70,13 +79,14 @@ import myPhoto from "/public/photo.webp";
         <p
           class="text-xl sm:text-2xl font-medium leading-relaxed text-zinc-600 dark:text-zinc-400 text-pretty"
           data-i18n="hero.description"
+          data-hero-split
         >
           Backend & Full Stack Engineer. Especializado en arquitectura de APIs robustas, sistemas
           escalables y automatización inteligente.
         </p>
-
         <div class="flex flex-wrap gap-4 pt-2">
           <a
+            data-hero-fade="cta"
             href="/#contacto"
             class="inline-flex items-center justify-center px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-[var(--bg)] bg-[var(--primary)] rounded-full transition-all hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-[var(--primary-muted)]"
             data-i18n="cta.contact"
@@ -84,6 +94,7 @@ import myPhoto from "/public/photo.webp";
             Contactar
           </a>
           <a
+            data-hero-fade="cta"
             href="/cvs/cv-es.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -96,11 +107,12 @@ import myPhoto from "/public/photo.webp";
         </div>
       </div>
 
-      <nav class="flex flex-wrap gap-x-10 gap-y-4">
+      <nav class="flex flex-wrap gap-x-6 gap-y-4 sm:gap-x-10">
         <a
           href="https://github.mikeldev.com"
           target="_blank"
           rel="noopener noreferrer"
+          data-hero-fade="social"
           class="hero-social-link flex items-center gap-x-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500 transition-colors hover:text-[var(--primary)] dark:text-zinc-300 group"
         >
           <GitHubIcon class="size-4 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -110,6 +122,7 @@ import myPhoto from "/public/photo.webp";
           href="https://www.linkedin.com/in/mikel-echeverria"
           target="_blank"
           rel="noopener noreferrer"
+          data-hero-fade="social"
           class="hero-social-link flex items-center gap-x-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500 transition-colors hover:text-[var(--primary)] dark:text-zinc-300 group"
         >
           <LinkedInIcon class="size-4 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -119,6 +132,7 @@ import myPhoto from "/public/photo.webp";
           href="https://x.com/mikelecheve"
           target="_blank"
           rel="noopener noreferrer"
+          data-hero-fade="social"
           class="hero-social-link flex items-center gap-x-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500 transition-colors hover:text-[var(--primary)] dark:text-zinc-300 group"
         >
           <XIcon class="size-4 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -126,6 +140,7 @@ import myPhoto from "/public/photo.webp";
         </a>
         <a
           href="mailto:mikel@mikeldev.com"
+          data-hero-fade="social"
           class="hero-social-link flex items-center gap-x-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500 transition-colors hover:text-[var(--primary)] dark:text-zinc-300 group"
         >
           <MailIcon class="size-4 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -180,3 +195,255 @@ import myPhoto from "/public/photo.webp";
 </main>
 
 <LocalAiChat />
+
+<script>
+  import { gsap } from "gsap";
+
+  let heroTimeline: gsap.core.Timeline | null = null;
+
+  const splitText = (element: HTMLElement) => {
+    if (element.querySelector("[data-hero-word]")) return;
+
+    const words = element.textContent?.split(/\s+/).filter(Boolean) ?? [];
+    element.replaceChildren(
+      ...words.map((word, index) => {
+        const item = document.createElement("span");
+        item.className = "hero-word";
+        item.dataset.heroWord = String(index);
+        item.textContent = index === words.length - 1 ? word : `${word} `;
+        return item;
+      })
+    );
+  };
+
+  const runHeroMotion = () => {
+    const hero = document.getElementById("hero-motion");
+    const header = document.getElementById("main-header");
+    const image = document.getElementById("scroll-linked-avatar");
+
+    if (!hero || !header || !image) return;
+
+    if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+      return;
+    }
+
+    const splitTargets = [...hero.querySelectorAll<HTMLElement>("[data-hero-split]")];
+    splitTargets.forEach(splitText);
+
+    const titleWords = [
+      ...hero.querySelectorAll<HTMLElement>('[data-i18n="hero.hello"] [data-hero-word]'),
+    ];
+    const descriptionWords = [
+      ...hero.querySelectorAll<HTMLElement>('[data-i18n="hero.description"] [data-hero-word]'),
+    ];
+    const fades = [...hero.querySelectorAll<HTMLElement>("[data-hero-fade]")];
+    const brandItems = [...hero.querySelectorAll<HTMLElement>('[data-hero-fade="brand"]')];
+    const availabilityItems = [
+      ...hero.querySelectorAll<HTMLElement>('[data-hero-fade="availability"]'),
+    ];
+    const ctaItems = [...hero.querySelectorAll<HTMLElement>('[data-hero-fade="cta"]')];
+    const socialItems = [...hero.querySelectorAll<HTMLElement>('[data-hero-fade="social"]')];
+    const headerItems = [...header.querySelectorAll<HTMLElement>("[data-motion-header-item]")];
+    const animatedTargets = [header, ...headerItems, ...titleWords, ...descriptionWords, ...fades];
+
+    heroTimeline?.kill();
+    gsap.set(animatedTargets, { clearProps: "opacity,visibility,transform,filter" });
+    gsap.set(header, { autoAlpha: 0, y: -14 });
+    gsap.set(headerItems, { autoAlpha: 0, y: -8 });
+    gsap.set(image, { filter: "blur(16px)" });
+    gsap.set([...titleWords, ...descriptionWords], {
+      autoAlpha: 0,
+      filter: "blur(10px)",
+      y: "0.35em",
+    });
+    gsap.set(fades, { autoAlpha: 0, y: 10 });
+
+    heroTimeline = gsap.timeline({
+      defaults: { ease: "power3.out" },
+      onComplete: () => {
+        gsap.set(animatedTargets, { clearProps: "opacity,visibility,transform,filter" });
+        gsap.set(image, { clearProps: "filter" });
+        heroTimeline = null;
+        document.documentElement.classList.remove("hero-motion-armed");
+      },
+    });
+
+    heroTimeline
+      .to(header, { autoAlpha: 1, y: 0, duration: 0.35 }, 0)
+      .to(headerItems, { autoAlpha: 1, y: 0, duration: 0.28, stagger: 0.04 }, 0.08)
+      .to(image, { filter: "blur(0px)", duration: 0.5 }, 0.45)
+      .to(
+        titleWords,
+        { autoAlpha: 1, filter: "blur(0px)", y: 0, duration: 0.36, stagger: 0.04 },
+        0.96
+      )
+      .to(brandItems, { autoAlpha: 1, y: 0, duration: 0.32 }, 1.37)
+      .to(availabilityItems, { autoAlpha: 1, y: 0, duration: 0.3 }, 1.7)
+      .to(
+        descriptionWords,
+        { autoAlpha: 1, filter: "blur(0px)", y: 0, duration: 0.36, stagger: 0.028 },
+        2.01
+      )
+      .to(ctaItems, { autoAlpha: 1, y: 0, duration: 0.32, stagger: 0.06 }, 2.78)
+      .to(socialItems, { autoAlpha: 1, y: 0, duration: 0.3, stagger: 0.05 }, 3.17);
+  };
+
+  const replayHeroMotion = () => {
+    if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+
+    document.documentElement.classList.add("hero-motion-armed");
+    runHeroMotion();
+  };
+
+  const initPageMotion = () => {
+    if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+
+    const revealTargets = [
+      ...document.querySelectorAll<HTMLElement>("main > .section:not(:first-child), footer"),
+    ];
+
+    if (!revealTargets.length) return;
+
+    const reveal = (target: HTMLElement) => {
+      if (target.dataset.motionRevealed) return;
+      target.dataset.motionRevealed = "true";
+
+      gsap.fromTo(
+        target,
+        { autoAlpha: 0, y: 24 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.65,
+          ease: "power3.out",
+          overwrite: "auto",
+          clearProps: "opacity,visibility,transform",
+          onComplete: () => target.classList.add("motion-visible"),
+        }
+      );
+
+      observer.unobserve(target);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) reveal(entry.target as HTMLElement);
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
+    );
+
+    revealTargets.forEach((target) => observer.observe(target));
+    window.addEventListener(
+      "pagehide",
+      (event) => {
+        if (!event.persisted) observer.disconnect();
+      },
+      { once: true }
+    );
+  };
+
+  window.addEventListener("languagechange", () => {
+    replayHeroMotion();
+  });
+
+  document.addEventListener("astro:after-swap", replayHeroMotion);
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) replayHeroMotion();
+  });
+  window.addEventListener("pagehide", () => heroTimeline?.kill(), { once: true });
+
+  runHeroMotion();
+  initPageMotion();
+</script>
+
+<style>
+  :global(html.hero-motion-armed #main-header) {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  :global(html.hero-motion-armed #main-header [data-motion-header-item]) {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  :global(html.hero-motion-armed #scroll-linked-avatar) {
+    filter: blur(16px);
+  }
+
+  :global(html.hero-motion-armed #hero-motion .hero-word),
+  :global(html.hero-motion-armed #hero-motion [data-hero-fade]) {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  :global(html.hero-motion-armed #hero-motion .hero-word) {
+    filter: blur(10px);
+    transform: translateY(0.35em);
+  }
+
+  :global(html.page-motion-armed main > .section:not(:first-child)),
+  :global(html.page-motion-armed footer) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  :global(html.page-motion-armed main > .section.motion-visible),
+  :global(html.page-motion-armed footer.motion-visible) {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-hero-split] {
+    display: inline-block;
+  }
+
+  .hero-word {
+    display: inline-block;
+    white-space: pre;
+  }
+
+  .hero-availability-ping {
+    animation: hero-availability-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes hero-availability-ping {
+    0% {
+      opacity: 0.75;
+      transform: scale(1);
+    }
+
+    75%,
+    100% {
+      opacity: 0;
+      transform: scale(2.25);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #hero-motion [data-hero-fade],
+    #hero-motion #hero-avatar-fallback,
+    #hero-motion .hero-word {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+    }
+
+    #main-header,
+    main > .section,
+    footer {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .hero-availability-ping {
+      animation: none;
+    }
+
+    #hero-motion .hero-word {
+      display: inline;
+    }
+  }
+</style>

@@ -35,10 +35,11 @@ const navItems = [
 
 <header class="fixed top-0 z-50 w-full h-20 flex items-center" id="main-header">
   <div class="max-w-3xl mx-auto w-full px-6 flex items-center justify-between">
-    <nav class="flex items-center gap-x-12">
+    <nav class="flex items-center gap-x-8 lg:gap-x-12">
       <a
         href="/#"
         id="header-avatar-anchor"
+        data-motion-header-item
         class="relative size-11 shrink-0 rounded-full sm:size-12"
         aria-label="Home"
       >
@@ -54,7 +55,7 @@ const navItems = [
         />
       </a>
 
-      <div class="hidden md:flex items-center gap-x-10">
+      <div class="hidden lg:flex items-center gap-x-10" data-motion-header-item>
         {
           navItems.map((link) => (
             <a
@@ -71,7 +72,7 @@ const navItems = [
       </div>
     </nav>
 
-    <div class="flex items-center gap-x-6">
+    <div class="flex items-center gap-x-3 sm:gap-x-6" data-motion-header-item>
       <div class="flex items-center gap-x-4">
         <ThemeToggle />
         <div class="w-px h-4 bg-[var(--border)]"></div>
@@ -80,7 +81,7 @@ const navItems = [
       <button
         id="burger-btn"
         aria-label="Abrir menú"
-        class="md:hidden p-2 -mr-2 text-[var(--ink)] hover:text-[var(--primary)] transition-colors"
+        class="lg:hidden p-2 -mr-2 text-[var(--ink)] hover:text-[var(--primary)] transition-colors"
       >
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="4" y1="7" x2="20" y2="7"></line>

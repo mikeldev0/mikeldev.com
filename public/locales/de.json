@@ -24,7 +24,7 @@
     "loading": "Lokale KI wird vorbereitet...",
     "errorStatus": "Start nicht möglich",
     "close": "Assistent schließen",
-    "greeting": "Hallo, ich bin Mikels lokaler Assistent. Ich kann Fragen zu dieser Website direkt in deinem Browser beantworten.",
+    "greeting": "Hallo, ich bin der lokale Assistent von Mikels Portfolio. Ich kann dir helfen, seine Erfahrung, Projekte und seinen technischen Stack kennenzulernen und seinen Lebenslauf oder Kontakt zu finden.",
     "inputLabel": "Schreibe deine Frage",
     "placeholder": "Frage etwas zu dieser Website...",
     "send": "Frage senden",

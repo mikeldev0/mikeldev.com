@@ -24,7 +24,7 @@
     "loading": "Preparing local AI...",
     "errorStatus": "Could not start",
     "close": "Close assistant",
-    "greeting": "Hi, I'm Mikel's local assistant. I can answer questions about this website from your browser.",
+    "greeting": "Hi, I'm the local assistant for Mikel's portfolio. I can help you explore his experience, projects and technical stack, and find his CV or contact details.",
     "inputLabel": "Write your question",
     "placeholder": "Ask about this website...",
     "send": "Send question",

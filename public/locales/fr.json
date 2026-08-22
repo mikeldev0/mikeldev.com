@@ -24,7 +24,7 @@
     "loading": "Préparation de l'IA locale...",
     "errorStatus": "Impossible de démarrer",
     "close": "Fermer l'assistant",
-    "greeting": "Bonjour, je suis l'assistant local de Mikel. Je peux répondre à vos questions sur ce site depuis votre navigateur.",
+    "greeting": "Bonjour, je suis l'assistant local du portfolio de Mikel. Je peux vous aider à découvrir son expérience, ses projets et sa stack technique, ainsi qu'à trouver son CV ou ses coordonnées.",
     "inputLabel": "Écrivez votre question",
     "placeholder": "Posez une question sur ce site...",
     "send": "Envoyer la question",

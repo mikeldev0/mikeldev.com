@@ -8,7 +8,7 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
 <button
   id="local-ai-launcher"
   type="button"
-  class="fixed bottom-24 right-6 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[var(--border)] bg-[var(--primary)] px-4 text-xs font-bold text-[var(--bg)] shadow-xl shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)] active:translate-y-0 sm:right-8"
+  class="fixed bottom-4 right-4 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[var(--border)] bg-[var(--primary)] px-4 text-xs font-bold text-[var(--bg)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)] active:translate-y-0 sm:bottom-24 sm:right-8"
   aria-label="Preguntar al asistente local"
   data-i18n-aria-label="chat.launcherLabel"
   aria-controls="local-ai-panel"
@@ -22,32 +22,34 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
 
 <section
   id="local-ai-panel"
-  class="fixed bottom-24 right-4 z-50 hidden h-[min(34rem,calc(100vh-7rem))] w-[min(23rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg)] shadow-2xl shadow-black/20 sm:right-8"
+  class="fixed inset-0 z-[70] hidden h-dvh w-full flex-col overflow-hidden bg-[var(--bg)] lg:inset-auto lg:bottom-24 lg:right-8 lg:h-[min(34rem,calc(100dvh-7rem))] lg:w-[min(23rem,calc(100vw-2rem))] lg:rounded-xl lg:border lg:border-[var(--border)] lg:shadow-[0_6px_8px_-6px_rgb(0_0_0_/_0.28)]"
   aria-labelledby="local-ai-title"
   aria-hidden="true"
   hidden
 >
   <header
-    class="flex items-center justify-between border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3"
+    class="flex items-center justify-between border-b border-[var(--border)] px-4 py-[max(0.75rem,env(safe-area-inset-top))]"
   >
     <div class="flex min-w-0 items-center gap-3">
       <div
-        class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--bg)]"
+        class="flex size-8 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--ink)]"
         aria-hidden="true"
       >
-        <MessageCircleIcon class="size-4" />
+        <MessageCircleIcon class="size-3.5" />
       </div>
       <div class="min-w-0">
         <h2
           id="local-ai-title"
-          class="truncate text-sm font-bold text-[var(--ink)]"
+          class="truncate text-sm font-semibold text-[var(--ink)]"
           data-i18n="chat.title"
         >
           Asistente local
         </h2>
         <p
           id="local-ai-status"
-          class="truncate text-[11px] text-[var(--ink-muted)]"
+          class="truncate text-[10px] text-[var(--ink-muted)]"
+          role="status"
+          aria-live="polite"
           data-i18n="chat.ready"
         >
           IA local lista
@@ -57,7 +59,7 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
     <button
       id="local-ai-close"
       type="button"
-      class="ml-3 inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-[var(--ink-muted)] transition-colors hover:bg-[var(--bg)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]"
+      class="ml-3 inline-flex size-11 shrink-0 items-center justify-center rounded-lg text-[var(--ink-muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]"
       aria-label="Cerrar asistente"
       data-i18n-aria-label="chat.close"
     >
@@ -67,39 +69,41 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
 
   <div
     id="local-ai-messages"
-    class="min-h-0 flex-1 space-y-3 overflow-y-auto p-4"
+    class="min-h-0 flex-1 space-y-3 overflow-y-auto p-3.5"
     role="log"
     aria-live="polite"
     aria-relevant="additions text"
   >
-    <div class="flex justify-start">
-      <p
-        class="max-w-[88%] whitespace-pre-wrap break-words rounded-2xl rounded-bl-md border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm leading-relaxed text-[var(--ink)]"
-        data-i18n="chat.greeting"
-      >
+    <div class="chat-message chat-message--assistant" data-chat-message>
+      <p class="chat-bubble chat-bubble--assistant" data-i18n="chat.greeting">
         Hola, soy el asistente local de Mikel. Puedo responder preguntas sobre esta web desde tu
         navegador.
       </p>
     </div>
   </div>
 
-  <form id="local-ai-form" class="border-t border-[var(--border)] bg-[var(--bg)] p-3">
+  <form
+    id="local-ai-form"
+    class="border-t border-[var(--border)] px-3 py-3 pb-[max(0.875rem,env(safe-area-inset-bottom))]"
+  >
     <label for="local-ai-input" class="sr-only" data-i18n="chat.inputLabel"
       >Escribe tu pregunta</label
     >
-    <div class="relative">
+    <div
+      class="flex items-end gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-1.5 transition-[border-color,box-shadow] focus-within:border-[var(--primary)] focus-within:ring-2 focus-within:ring-[var(--primary)]/20"
+    >
       <textarea
         id="local-ai-input"
         rows="1"
         maxlength="1000"
-        class="min-h-11 max-h-28 w-full resize-none overflow-y-auto rounded-xl border border-[var(--border)] bg-[var(--surface)] py-3 pl-3 pr-12 text-sm leading-5 text-[var(--ink)] outline-none transition-colors placeholder:text-[var(--ink-muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 disabled:cursor-not-allowed disabled:opacity-60"
+        class="min-h-10 max-h-28 min-w-0 flex-1 resize-none overflow-y-auto border-0 bg-transparent px-2.5 py-2 text-sm leading-5 text-[var(--ink)] outline-none placeholder:text-[var(--ink-muted)] focus:ring-0 disabled:cursor-not-allowed disabled:opacity-60"
         placeholder="Pregunta sobre esta web..."
         data-i18n-placeholder="chat.placeholder"
         aria-describedby="local-ai-disclaimer"></textarea>
       <button
         id="local-ai-send"
         type="submit"
-        class="absolute bottom-2 right-2 inline-flex size-8 items-center justify-center rounded-lg bg-[var(--primary)] text-[var(--bg)] transition-all hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)] disabled:pointer-events-none disabled:opacity-40"
+        class="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)] text-[var(--bg)] transition-[opacity,transform] hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)] active:scale-95 disabled:pointer-events-none disabled:opacity-40"
         aria-label="Enviar pregunta"
         data-i18n-aria-label="chat.send"
       >
@@ -117,6 +121,7 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
 </section>
 
 <script>
+  import { gsap } from "gsap";
   import {
     createLanguageModelSession,
     getLanguageModelAvailability,
@@ -125,6 +130,7 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
   } from "../lib/local-ai/language-model";
   import { createVisiblePageContext } from "../lib/local-ai/page-context";
   import { createLocalAssistantPrompt } from "../lib/local-ai/prompt";
+  import { renderSimpleMarkdown } from "../lib/local-ai/simple-markdown";
 
   type TranslationFunction = (key: string) => string;
 
@@ -148,6 +154,12 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
   let initialized = false;
   let isReady = false;
   let sessionVersion = 0;
+  let panelTween: gsap.core.Tween | null = null;
+  const renderedAssistantText = new WeakMap<HTMLElement, string>();
+  const assistantRenderStates = new WeakMap<
+    HTMLElement,
+    { wordSpans: HTMLSpanElement[]; trailingText: Text | null }
+  >();
 
   const fallbackTranslations: Record<string, string> = {
     "chat.ready": "IA local lista",
@@ -182,20 +194,165 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
     if (messages) messages.scrollTop = messages.scrollHeight;
   }
 
-  function appendMessage(role: "user" | "assistant", text: string): HTMLParagraphElement | null {
+  function revealChatElement(
+    element: HTMLElement,
+    distance = 12,
+    blurAmount = 8,
+    duration = 0.35
+  ): void {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    gsap.fromTo(
+      element,
+      {
+        autoAlpha: 0,
+        filter: `blur(${blurAmount}px)`,
+        y: distance,
+      },
+      {
+        autoAlpha: 1,
+        filter: "blur(0px)",
+        y: 0,
+        duration,
+        ease: "power3.out",
+        overwrite: "auto",
+        clearProps: "filter,transform,opacity,visibility",
+      }
+    );
+  }
+
+  function revealPendingMessages(): void {
+    messages
+      ?.querySelectorAll<HTMLElement>("[data-chat-message]:not([data-chat-revealed])")
+      .forEach((message) => {
+        message.dataset.chatRevealed = "true";
+        revealChatElement(message, 14, 9, 0.35);
+      });
+  }
+
+  type StreamingToken = { value: string; bold: boolean; whitespace: boolean };
+
+  function tokenizeStreamingMarkdown(text: string): StreamingToken[] {
+    const segments: Array<{ text: string; bold: boolean }> = [];
+    let cursor = 0;
+
+    while (cursor < text.length) {
+      const opening = text.indexOf("**", cursor);
+
+      if (opening < 0) {
+        segments.push({ text: text.slice(cursor), bold: false });
+        break;
+      }
+
+      if (opening > cursor) segments.push({ text: text.slice(cursor, opening), bold: false });
+
+      const closing = text.indexOf("**", opening + 2);
+      if (closing < 0) {
+        segments.push({ text: text.slice(opening), bold: false });
+        break;
+      }
+
+      segments.push({ text: text.slice(opening + 2, closing), bold: true });
+      cursor = closing + 2;
+    }
+
+    return segments.flatMap((segment) =>
+      (segment.text.match(/\s+|\S+/g) ?? []).map((value) => ({
+        value,
+        bold: segment.bold,
+        whitespace: /^\s+$/.test(value),
+      }))
+    );
+  }
+
+  function renderAssistantText(bubble: HTMLElement, text: string, finalize = false): void {
+    const previousText = renderedAssistantText.get(bubble) ?? bubble.textContent ?? "";
+
+    if (finalize) {
+      renderSimpleMarkdown(bubble, text);
+      assistantRenderStates.delete(bubble);
+      renderedAssistantText.set(bubble, text);
+      return;
+    }
+
+    if (!finalize && (text === previousText || (text && text.trim() === previousText.trim()))) {
+      return;
+    }
+
+    const isContinuation = text.startsWith(previousText);
+    if (!isContinuation) {
+      bubble.replaceChildren();
+      assistantRenderStates.delete(bubble);
+    }
+
+    const tokens = tokenizeStreamingMarkdown(text);
+    const words = tokens.filter((token) => !token.whitespace);
+    const hasCompletedBoldTail = text.endsWith("**") && words.at(-1)?.bold;
+    const hasTrailingWord = !hasCompletedBoldTail && words.length > 0 && !/\s$/.test(text);
+    const stableWordCount = words.length - (hasTrailingWord ? 1 : 0);
+    const state = assistantRenderStates.get(bubble) ?? { wordSpans: [], trailingText: null };
+    const nextChildren: (Node | string)[] = [];
+    const nextWordSpans: HTMLSpanElement[] = [];
+    let wordIndex = 0;
+
+    tokens.forEach((token) => {
+      if (token.whitespace) {
+        nextChildren.push(document.createTextNode(token.value));
+        return;
+      }
+
+      if (wordIndex < stableWordCount) {
+        const word = state.wordSpans[wordIndex] ?? document.createElement("span");
+        const isNewWord = !state.wordSpans[wordIndex];
+        word.className = "chat-generated-text";
+        word.replaceChildren();
+
+        if (token.bold) {
+          const strong = document.createElement("strong");
+          strong.textContent = token.value;
+          word.append(strong);
+        } else {
+          word.textContent = token.value;
+        }
+
+        nextWordSpans.push(word);
+        nextChildren.push(word);
+
+        if (isNewWord) {
+          revealChatElement(word, 5, 6, 0.18);
+        }
+
+        wordIndex += 1;
+        return;
+      }
+
+      const trailingText = state.trailingText ?? document.createTextNode("");
+      trailingText.textContent = token.value;
+      nextChildren.push(trailingText);
+      state.trailingText = trailingText;
+    });
+
+    if (!hasTrailingWord) state.trailingText = null;
+    state.wordSpans = nextWordSpans;
+    bubble.replaceChildren(...nextChildren);
+    assistantRenderStates.set(bubble, state);
+    renderedAssistantText.set(bubble, text);
+  }
+
+  function appendMessage(role: "user" | "assistant", text: string): HTMLElement | null {
     if (!messages) return null;
 
     const wrapper = document.createElement("div");
-    wrapper.className = role === "user" ? "flex justify-end" : "flex justify-start";
+    wrapper.className = `chat-message chat-message--${role}`;
 
-    const bubble = document.createElement("p");
-    bubble.className =
-      role === "user"
-        ? "max-w-[88%] whitespace-pre-wrap break-words rounded-2xl rounded-br-md bg-[var(--primary)] px-3 py-2 text-sm leading-relaxed text-[var(--bg)]"
-        : "max-w-[88%] whitespace-pre-wrap break-words rounded-2xl rounded-bl-md border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm leading-relaxed text-[var(--ink)]";
+    const bubble = document.createElement("div");
+    bubble.className = `chat-bubble chat-bubble--${role}`;
     bubble.textContent = text;
     wrapper.appendChild(bubble);
+    wrapper.dataset.chatMessage = "true";
+    wrapper.dataset.chatRevealed = "true";
     messages.appendChild(wrapper);
+    revealChatElement(wrapper, role === "assistant" ? 14 : 10, role === "assistant" ? 9 : 6);
     scrollMessagesToBottom();
 
     return bubble;
@@ -208,16 +365,61 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
   }
 
   function setPanelVisibility(visible: boolean): void {
-    panel?.classList.toggle("hidden", !visible);
-    panel?.classList.toggle("flex", visible);
-    panel?.toggleAttribute("hidden", !visible);
+    panelTween?.kill();
+    panelTween = null;
+
     panel?.setAttribute("aria-hidden", String(!visible));
     launcher?.setAttribute("aria-expanded", String(visible));
     setLauncherVisibility(!visible && isReady);
 
     if (visible) {
+      if (!panel) return;
+
+      panel.classList.remove("hidden");
+      panel.classList.add("flex");
+      panel.removeAttribute("hidden");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(panel, { clearProps: "transform,opacity,visibility" });
+      } else {
+        panelTween = gsap.fromTo(
+          panel,
+          { autoAlpha: 0, y: 14, scale: 0.98 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.28,
+            ease: "power3.out",
+            overwrite: "auto",
+            clearProps: "transform,opacity,visibility",
+          }
+        );
+      }
+      revealPendingMessages();
       window.setTimeout(() => input?.focus(), 0);
       void ensureSession();
+    } else if (panel) {
+      const hidePanel = () => {
+        panel.classList.add("hidden");
+        panel.classList.remove("flex");
+        panel.setAttribute("hidden", "");
+        panelTween = null;
+      };
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(panel, { clearProps: "transform,opacity,visibility" });
+        hidePanel();
+      } else {
+        panelTween = gsap.to(panel, {
+          autoAlpha: 0,
+          y: 14,
+          scale: 0.98,
+          duration: 0.22,
+          ease: "power2.in",
+          overwrite: "auto",
+          onComplete: hidePanel,
+        });
+      }
     }
   }
 
@@ -243,7 +445,7 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
     );
 
     const pendingSession = createLanguageModelSession(systemPrompt, (loaded, total) => {
-      if (total > 0 && status) {
+      if (total > 0 && loaded > 0 && status) {
         status.textContent = `${translate("chat.loading")} ${Math.round((loaded / total) * 100)}%`;
       }
     });
@@ -299,21 +501,23 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
         currentSession,
         question,
         (partialResponse) => {
-          answerBubble.textContent = partialResponse;
+          renderAssistantText(answerBubble, partialResponse);
           scrollMessagesToBottom();
         },
         abortController.signal
       );
 
-      answerBubble.textContent = response || translate("chat.emptyResponse");
+      renderAssistantText(answerBubble, response || translate("chat.emptyResponse"), true);
       setStatus("chat.ready");
     } catch (error) {
       const errorName = error instanceof DOMException ? error.name : "";
-      answerBubble?.replaceChildren(
-        document.createTextNode(
-          errorName === "AbortError" ? translate("chat.cancelled") : translate("chat.error")
-        )
-      );
+      if (answerBubble) {
+        renderAssistantText(
+          answerBubble,
+          errorName === "AbortError" ? translate("chat.cancelled") : translate("chat.error"),
+          true
+        );
+      }
 
       if (errorName !== "AbortError") {
         console.error("Unable to answer with the local Chrome AI session", error);
@@ -387,6 +591,92 @@ import SparklesIcon from "../icons/SparklesIcon.astro";
 </script>
 
 <style>
+  :global(#local-ai-messages .chat-message) {
+    display: flex;
+  }
+
+  :global(#local-ai-messages .chat-message--assistant) {
+    justify-content: flex-start;
+  }
+
+  :global(#local-ai-messages .chat-message--user) {
+    justify-content: flex-end;
+  }
+
+  :global(#local-ai-messages .chat-bubble) {
+    max-width: 88%;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.625;
+  }
+
+  :global(#local-ai-messages .chat-bubble--assistant) {
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 0.25rem;
+    background: var(--surface);
+    color: var(--ink);
+  }
+
+  :global(#local-ai-messages .chat-bubble--user) {
+    border-bottom-right-radius: 0.25rem;
+    background: var(--primary);
+    color: var(--bg);
+  }
+
+  :global(#local-ai-messages .chat-generated-text) {
+    display: inline-block;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  :global(#local-ai-messages .chat-markdown-paragraph) {
+    margin: 0;
+  }
+
+  :global(#local-ai-messages .chat-markdown-paragraph + .chat-markdown-paragraph) {
+    margin-top: 0.75rem;
+  }
+
+  :global(#local-ai-messages .chat-markdown-heading) {
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  :global(#local-ai-messages .chat-markdown-list) {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0.25rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  :global(#local-ai-messages .chat-markdown-list--ordered) {
+    list-style: decimal;
+  }
+
+  :global(#local-ai-messages .chat-markdown-list:not(.chat-markdown-list--ordered)) {
+    list-style: disc;
+  }
+
+  :global(#local-ai-messages .chat-markdown-code) {
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    background: var(--bg);
+    padding: 0.1rem 0.3rem;
+    font-size: 0.8125rem;
+  }
+
+  :global(#local-ai-messages .chat-markdown-link) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     #local-ai-launcher,
     #local-ai-panel {

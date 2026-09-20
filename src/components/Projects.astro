@@ -76,7 +76,7 @@ const TAG = {
 const STATIC_PROJECTS: Project[] = [
   {
     github: "https://github.com/mikeldev0/proyectosJS",
-    link: "https://proyectosjs.mikeldev.com",
+    link: "https://m.mikeldev.com/proyectos",
     title: "Vanilla JS Tools & Experiments",
     description:
       "Colección de herramientas web y experimentos prácticos construidos con JavaScript vanilla. Incluye desde chatbots con WebGPU hasta utilidades de productividad y juegos ligeros.",
@@ -88,7 +88,7 @@ const STATIC_PROJECTS: Project[] = [
     description:
       "Infraestructura digital para agencia de marketing especializada. Enfoque en performance, SEO técnico y conversión mediante arquitectura de componentes modulares.",
     tags: [TAG.REACT, TAG.TYPESCRIPT],
-    link: "https://woofandwork.netlify.app",
+    link: "https://m.mikeldev.com/woofandwork",
   },
   {
     title: "WebLLM-local AI",
@@ -96,7 +96,7 @@ const STATIC_PROJECTS: Project[] = [
       "Implementación de chatbot con modelos de lenguaje ejecutados en el cliente vía WebGPU. Investigación sobre privacidad en IA y computación distribuida en el navegador.",
     github: "https://github.com/mikeldev0/WebLLM-local",
     tags: [TAG.JAVASCRIPT, TAG.TYPESCRIPT],
-    link: "https://chat.mikeldev.com",
+    link: "https://m.mikeldev.com/chat",
   },
 ];
 
@@ -124,12 +124,18 @@ const pinnedReposQuery = `
   }
 `;
 
+const SHORT_LINKS: Record<string, string> = {
+  "mikeldev0/proyectosJS": "https://m.mikeldev.com/proyectos",
+  "mikeldev0/woofandwork": "https://m.mikeldev.com/woofandwork",
+  "mikeldev0/WebLLM-local": "https://m.mikeldev.com/chat",
+};
+
 function normalizeRepository(repo: GitHubRepository): Project {
   return {
     title: repo.name,
     description: repo.description || repo.nameWithOwner,
     github: repo.url,
-    link: repo.homepageUrl || undefined,
+    link: SHORT_LINKS[repo.nameWithOwner] ?? (repo.homepageUrl || undefined),
     image: repo.openGraphImageUrl || undefined,
     tags: repo.languages.nodes.filter((tag) => Boolean(tag.name)),
   };

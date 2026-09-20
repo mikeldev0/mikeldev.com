@@ -78,7 +78,7 @@
   "cta": {
     "contact": "Contactar",
     "viewCv": "Ver CV",
-    "cvPath": "/cvs/cv-es.pdf"
+    "cvPath": "https://m.mikeldev.com/cv"
   },
   "projectsSection": {
     "demo": "DEMO",

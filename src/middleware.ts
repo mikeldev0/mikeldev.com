@@ -103,6 +103,20 @@ function withNegotiationHeaders(response: Response, markdownPath: string | null)
   });
 }
 
+function withHtmlNoTransform(response: Response) {
+  if (!response.headers.get("Content-Type")?.includes("text/html")) return response;
+
+  const headers = new Headers(response.headers);
+  const cacheControl = headers.get("Cache-Control");
+  headers.set("Cache-Control", cacheControl ? `${cacheControl}, no-transform` : "no-transform");
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export const onRequest = defineMiddleware(async (context, next) => {
   const method = context.request.method.toUpperCase();
   const isRepresentationRequest = method === "GET" || method === "HEAD";
@@ -137,10 +151,10 @@ export const onRequest = defineMiddleware(async (context, next) => {
       return response;
     }
 
-    return withNegotiationHeaders(await next(), markdownPath);
+    return withNegotiationHeaders(withHtmlNoTransform(await next()), markdownPath);
   }
 
-  const response = await next();
+  const response = withHtmlNoTransform(await next());
   if (response.status !== 404) return response;
 
   if (context.url.pathname.startsWith("/api/")) {

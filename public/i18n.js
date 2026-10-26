@@ -22,6 +22,16 @@ async function loadLang(lang) {
       el.textContent = text;
     }
   });
+  document.querySelectorAll("[data-i18n-role]").forEach((el) => {
+    const text = getNested(window.__t, el.dataset.i18nRole);
+    if (!text || typeof text !== "string") return;
+    const parts = text.split("|").map((part) => part.trim());
+    const role = parts[0];
+    const company = parts.slice(1).join(" | ");
+    if (role) el.textContent = role;
+    const companyEl = el.parentElement?.querySelector("[data-i18n-company]");
+    if (companyEl && company) companyEl.textContent = company;
+  });
   document.querySelectorAll("[data-i18n-html]").forEach((el) => {
     const key = el.dataset.i18nHtml;
     const html = getNested(window.__t, key);

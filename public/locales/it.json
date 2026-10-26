@@ -10,7 +10,8 @@
   },
   "hero": {
     "hello": "Mikel Echeverria",
-    "description": "Backend & Full Stack Engineer. Specializzato in architettura API robusta, sistemi scalabili e automazione intelligente.",
+    "description": "Sviluppatore Full-Stack — Laravel · Vue/Nuxt · React/Next.js",
+    "skillsLabel": "Competenze tecniche",
     "signalBackend": "Backend Architecture",
     "signalFullStack": "Full Stack Delivery",
     "signalAi": "AI & Automation",
@@ -40,7 +41,7 @@
     "about": "Chi sono"
   },
   "about": {
-    "content": "Sono <strong>Mikel Echeverria</strong>, un <strong>Ingegnere Backend & Full Stack</strong>. Unisco il rigore tecnico a una comunicazione efficace per costruire sistemi scalabili end-to-end. Inoltre, esploro continuamente l'<strong>Intelligenza Artificiale</strong> e i <strong>modelli generativi</strong> per sviluppare soluzioni robuste che ottimizzano i processi e offrono un valore reale."
+    "content": "Sono <strong>Mikel Echeverria</strong>, <strong>sviluppatore full-stack</strong>. Unisco il rigore tecnico a una comunicazione efficace per costruire sistemi scalabili end-to-end. Inoltre, esploro continuamente l'<strong>Intelligenza Artificiale</strong> e i <strong>modelli generativi</strong> per sviluppare soluzioni robuste che ottimizzano i processi e offrono un valore reale."
   },
   "experience": {
     "moreInfo": "Dettagli",
@@ -51,8 +52,8 @@
     },
     "codetec": {
       "date": "Gen 2025 - Set 2025",
-      "title": "Sviluppatore Full-Stack | Codetec",
-      "description": "Sviluppo di <strong>soluzioni aziendali</strong> per logistica e gestione. Utilizzo di <strong>Node.js, Angular e Ionic</strong> per ottimizzare i processi di business. Implementazione di architetture full-stack su misura."
+      "title": "Sviluppatore Full-Stack | Codetec Servicios Informáticos SL",
+      "description": "Come <strong>sviluppatore full-stack</strong> in Codetec Servicios Informáticos SL, ho sviluppato e mantenuto applicazioni in produzione con <strong>Nuxt 3</strong>, <strong>Vue 3</strong> e <strong>TypeScript</strong>. Ho consegnato un sistema aziendale di <strong>rilevazione presenze e timbratura</strong>, un'applicazione di <strong>gestione in tempo reale di flotte di camion</strong> e un negozio <strong>e-commerce di merchandising</strong> con integrazione di un gateway di pagamento. Ho anche lavorato a soluzioni di gestione, contabilità, fatturazione e logistica, frontend e backend, con Vue.js, Ionic, Angular, Node.js e database SQL/NoSQL."
     },
     "tesicnor_backend": {
       "date": "Ago 2024 - Ott 2024",

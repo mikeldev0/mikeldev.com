@@ -14,11 +14,13 @@ import XIcon from "../icons/XIcon.astro";
 import Layout from "../layouts/Layout.astro";
 import LocalAiChat from "../components/LocalAiChat.astro";
 import myPhoto from "/public/photo.webp";
+
+const HEADLINE_SKILLS = ["Laravel (PHP)", "Vue.js", "Nuxt", "React", "Next.js"];
 ---
 
 <Layout
-  title="mikeldev | Mikel Echeverria - Backend & Full Stack Engineer"
-  description="mikeldev es el portafolio profesional de Mikel Echeverria, Backend & Full Stack Engineer especializado en arquitectura de APIs, sistemas escalables e IA."
+  title="mikeldev | Mikel Echeverria - Full-Stack Developer"
+  description="mikeldev es el portafolio profesional de Mikel Echeverria, Desarrollador Full Stack (Laravel, Vue/Nuxt, React/Next.js)."
 />
 <script is:inline>
   if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
@@ -39,7 +41,7 @@ import myPhoto from "/public/photo.webp";
             id="hero-avatar-fallback"
             class="size-full rounded-[28px] object-cover object-center shadow-2xl shadow-zinc-900/20 dark:shadow-black/40"
             src={myPhoto}
-            alt="Mikel Echeverria, Desarrollador Full Stack y Backend"
+            alt="Mikel Echeverria, Desarrollador Full Stack"
             width="288"
             height="288"
             loading="eager"
@@ -81,9 +83,31 @@ import myPhoto from "/public/photo.webp";
           data-i18n="hero.description"
           data-hero-split
         >
-          Backend & Full Stack Engineer. Especializado en arquitectura de APIs robustas, sistemas
-          escalables y automatización inteligente.
+          Desarrollador Full Stack — Laravel · Vue/Nuxt · React/Next.js
         </p>
+        <div
+          class="flex flex-wrap items-center gap-x-3 gap-y-2"
+          role="list"
+          aria-label="Stack técnico"
+          data-i18n-aria-label="hero.skillsLabel"
+          data-hero-fade="skills"
+        >
+          {
+            HEADLINE_SKILLS.map((skill, index) => (
+              <>
+                <span
+                  role="listitem"
+                  class="text-[10px] font-black uppercase tracking-[0.15em] text-[var(--primary)]"
+                >
+                  {skill}
+                </span>
+                {index < HEADLINE_SKILLS.length - 1 && (
+                  <span class="size-1 rounded-full bg-[var(--border)]" aria-hidden="true" />
+                )}
+              </>
+            ))
+          }
+        </div>
         <div class="flex flex-wrap gap-4 pt-2">
           <a
             data-hero-fade="cta"
@@ -95,7 +119,7 @@ import myPhoto from "/public/photo.webp";
           </a>
           <a
             data-hero-fade="cta"
-            href="https://m.mikeldev.com/cv"
+            href="/cvs/mikel-echeverria-cv-es-fullstack.pdf"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-400 border border-[var(--border)] rounded-full transition-all hover:bg-[var(--surface)]"
@@ -243,6 +267,7 @@ import myPhoto from "/public/photo.webp";
     ];
     const ctaItems = [...hero.querySelectorAll<HTMLElement>('[data-hero-fade="cta"]')];
     const socialItems = [...hero.querySelectorAll<HTMLElement>('[data-hero-fade="social"]')];
+    const skillItems = [...hero.querySelectorAll<HTMLElement>('[data-hero-fade="skills"]')];
     const headerItems = [...header.querySelectorAll<HTMLElement>("[data-motion-header-item]")];
     const animatedTargets = [header, ...headerItems, ...titleWords, ...descriptionWords, ...fades];
 
@@ -284,6 +309,7 @@ import myPhoto from "/public/photo.webp";
         { autoAlpha: 1, filter: "blur(0px)", y: 0, duration: 0.36, stagger: 0.028 },
         2.01
       )
+      .to(skillItems, { autoAlpha: 1, y: 0, duration: 0.32 }, 2.48)
       .to(ctaItems, { autoAlpha: 1, y: 0, duration: 0.32, stagger: 0.06 }, 2.78)
       .to(socialItems, { autoAlpha: 1, y: 0, duration: 0.3, stagger: 0.05 }, 3.17);
   };

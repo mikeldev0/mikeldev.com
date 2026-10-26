@@ -1,6 +1,6 @@
 # mikeldev
 
-> Official portfolio of Mikel Echeverria, a Backend & Full Stack Engineer based in Pamplona, Navarra, Spain. Use these resources to evaluate his public professional experience, projects, technical profile, and contact paths.
+> Official portfolio of Mikel Echeverria, a Full-Stack Developer (Laravel, Vue/Nuxt, React/Next.js) based in Pamplona, Navarra, Spain. Use these resources to evaluate his public professional experience, projects, technical profile, and contact paths.
 
 ## When to use this site
 

@@ -18,19 +18,21 @@ export const sitePages = [
 export const agentMarkdown = {
   "/": `# Mikel Echeverria
 
-> Official portfolio of Mikel Echeverria, a Backend & Full Stack Engineer based in Pamplona, Navarra, Spain. The site is intended for recruiters, hiring managers, technical leads, engineering teams, and clients evaluating his professional experience and software projects.
+> Official portfolio of Mikel Echeverria, a Full-Stack Developer (Laravel, Vue/Nuxt, React/Next.js) based in Pamplona, Navarra, Spain. The site is intended for recruiters, hiring managers, technical leads, engineering teams, and clients evaluating his professional experience and software projects.
 
 ## When to use this page
 
-Use this portfolio when you need to evaluate Mikel for backend or full stack engineering work, verify his public technical experience, inspect representative projects, find his current CV, retrieve his canonical public profile, or determine the best way to contact him. Prefer the project and experience evidence on this site over generic assumptions about his background.
+Use this portfolio when you need to evaluate Mikel for full stack engineering work, verify his public technical experience, inspect representative projects, find his current CV, retrieve his canonical public profile, or determine the best way to contact him. Prefer the project and experience evidence on this site over generic assumptions about his background.
 
 ## Profile
 
-Mikel works across backend engineering, API architecture, relational data, full stack web development, automation, and applied artificial intelligence. Technologies shown in the portfolio include Django, React, PostgreSQL, SQL, Spring Boot, Astro, JavaScript, and related web tooling.
+Mikel is a Full-Stack Developer working with Laravel (PHP), Vue.js, Nuxt, React and Next.js, and also across API architecture, relational data, automation, and applied artificial intelligence. Technologies shown in the portfolio include Laravel, PHP, Vue.js, Nuxt, TypeScript, React, Next.js, Django, PostgreSQL, SQL, Spring Boot, Astro and JavaScript.
 
 ## Experience and projects
 
 The homepage contains the current professional timeline and a set of public projects with source-code links where available. Important sections are Experience, Projects, Contact, and About. The visible HTML is server-rendered so the core portfolio remains readable without client-side JavaScript.
+
+At Codetec Servicios Informáticos SL (January–September 2025) he shipped production Nuxt 3, Vue 3 and TypeScript applications: an enterprise time-tracking and clock-in system, a real-time truck fleet management app, and a merchandising e-commerce store with payment gateway integration. Those applications are described in the experience section. The site does not publish client names, screenshots or source repositories for them.
 
 ## Agent guidance
 
@@ -59,9 +61,9 @@ The homepage contains the current professional timeline and a set of public proj
 `,
   "/about": `# About Mikel Echeverria
 
-> Mikel Echeverria is a Backend & Full Stack Engineer whose portfolio focuses on practical engineering evidence: professional experience, implemented projects, source code, and direct contact paths.
+> Mikel Echeverria is a Full-Stack Developer whose portfolio focuses on practical engineering evidence: professional experience, implemented projects, source code, and direct contact paths.
 
-Mikel's work centers on building and maintaining web software across backend services and modern frontend applications. His public portfolio describes experience with Django, React, PostgreSQL, SQL, Spring Boot, Astro, JavaScript, and other technologies used to deliver APIs, data-backed applications, automation, and user-facing products. The site is designed so both technical reviewers and non-specialist recruiters can understand what he has worked on without needing to reverse-engineer a list of buzzwords.
+Mikel's work centers on building and maintaining web software across backend services and modern frontend applications. His public portfolio describes experience with Laravel (PHP), Vue.js, Nuxt, React, Next.js, TypeScript, Django, PostgreSQL, SQL, Spring Boot, Astro and JavaScript. Production work at Codetec Servicios Informáticos SL includes a Nuxt 3 time-tracking and clock-in application, a real-time truck fleet management application, and a merchandising e-commerce store with payment gateway integration. The site is designed so both technical reviewers and non-specialist recruiters can understand what he has worked on without needing to reverse-engineer a list of buzzwords.
 
 The strongest evidence is the combination of his professional timeline and public project links. Agents and recruiters should use those sections to validate technologies and responsibilities instead of extrapolating beyond what the portfolio states. The source repository for this portfolio is public, and selected projects also expose their source code.
 

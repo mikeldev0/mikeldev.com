@@ -10,7 +10,8 @@
   },
   "hero": {
     "hello": "Mikel Echeverria",
-    "description": "Backend & Full Stack Engineer. Especializado en arquitectura de APIs robustas, sistemas escalables y automatización inteligente.",
+    "description": "Desarrollador Full Stack — Laravel · Vue/Nuxt · React/Next.js",
+    "skillsLabel": "Stack técnico",
     "signalBackend": "Backend Architecture",
     "signalFullStack": "Full Stack Delivery",
     "signalAi": "AI & Automation",
@@ -40,7 +41,7 @@
     "about": "Sobre mí"
   },
   "about": {
-    "content": "Soy <strong>Mikel Echeverria</strong>, un <strong>Backend & Full Stack Engineer</strong>. Mi enfoque combina rigor técnico con comunicación efectiva para construir sistemas escalables end-to-end. Además, exploro continuamente la <strong>Inteligencia Artificial</strong> y los <strong>modelos generativos</strong> para desarrollar soluciones robustas que optimicen procesos y aporten valor real."
+    "content": "Soy <strong>Mikel Echeverria</strong>, <strong>Desarrollador Full Stack</strong>. Mi enfoque combina rigor técnico con comunicación efectiva para construir sistemas escalables end-to-end. Además, exploro continuamente la <strong>Inteligencia Artificial</strong> y los <strong>modelos generativos</strong> para desarrollar soluciones robustas que optimicen procesos y aporten valor real."
   },
   "experience": {
     "moreInfo": "Más información",
@@ -51,8 +52,8 @@
     },
     "codetec": {
       "date": "Enero 2025 - Septiembre 2025",
-      "title": "Desarrollador Full Stack | CODETEC Servicios Informáticos SL",
-      "description": "Como <strong>Desarrollador Full Stack</strong> en Codetec, trabajé en el desarrollo y mantenimiento de <strong>soluciones empresariales</strong>, especializándome en <strong>gestión, contabilidad, facturación y logística</strong>. Utilicé tecnologías modernas como <strong>Vue.js, Ionic, Angular y Node.js</strong> para crear aplicaciones web y móviles eficientes que mejoraron los procesos de negocio de nuestros clientes. Mi trabajo abarcó tanto el desarrollo frontend como backend, implementando <strong>soluciones personalizadas</strong> con frameworks modernos y bases de datos SQL/NoSQL que se adaptaron a las necesidades específicas de cada empresa."
+      "title": "Desarrollador Full Stack | Codetec Servicios Informáticos SL",
+      "description": "Como <strong>Desarrollador Full Stack</strong> en Codetec Servicios Informáticos SL, desarrollé y mantuve aplicaciones en producción con <strong>Nuxt 3</strong>, <strong>Vue 3</strong> y <strong>TypeScript</strong>. Entregué un sistema empresarial de <strong>control horario y fichaje</strong>, una aplicación de <strong>gestión de flotas de camiones en tiempo real</strong> y una tienda de <strong>e-commerce de merchandising</strong> con integración de pasarela de pago. También trabajé en soluciones de gestión, contabilidad, facturación y logística, en frontend y backend, con Vue.js, Ionic, Angular, Node.js y bases de datos SQL/NoSQL."
     },
     "tesicnor_backend": {
       "date": "Agosto 2024 - Octubre 2024",
@@ -78,7 +79,7 @@
   "cta": {
     "contact": "Contactar",
     "viewCv": "Ver CV",
-    "cvPath": "https://m.mikeldev.com/cv"
+    "cvPath": "/cvs/mikel-echeverria-cv-es-fullstack.pdf"
   },
   "projectsSection": {
     "demo": "DEMO",

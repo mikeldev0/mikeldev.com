@@ -10,7 +10,8 @@
   },
   "hero": {
     "hello": "Mikel Echeverria",
-    "description": "Backend & Full Stack Engineer. Spécialisé en architecture d'APIs robustes, systèmes évolutifs et automatisation intelligente.",
+    "description": "Développeur Full-Stack — Laravel · Vue/Nuxt · React/Next.js",
+    "skillsLabel": "Compétences techniques",
     "signalBackend": "Backend Architecture",
     "signalFullStack": "Full Stack Delivery",
     "signalAi": "AI & Automation",
@@ -40,7 +41,7 @@
     "about": "À propos"
   },
   "about": {
-    "content": "Je suis <strong>Mikel Echeverria</strong>, un <strong>Ingénieur Backend & Full Stack</strong>. J'associe rigueur technique et communication efficace pour construire des systèmes évolutifs de bout en bout. De plus, j'explore continuellement l'<strong>Intelligence Artificielle</strong> et les <strong>modèles génératifs</strong> pour développer des solutions robustes qui optimisent les processus et apportent une réelle valeur."
+    "content": "Je suis <strong>Mikel Echeverria</strong>, <strong>développeur full-stack</strong>. J'associe rigueur technique et communication efficace pour construire des systèmes évolutifs de bout en bout. De plus, j'explore continuellement l'<strong>Intelligence Artificielle</strong> et les <strong>modèles génératifs</strong> pour développer des solutions robustes qui optimisent les processus et apportent une réelle valeur."
   },
   "experience": {
     "moreInfo": "Détails",
@@ -51,8 +52,8 @@
     },
     "codetec": {
       "date": "Jan 2025 - Sep 2025",
-      "title": "Développeur Full-Stack | Codetec",
-      "description": "Développement de <strong>solutions d'entreprise</strong> pour la logistique et la gestion. Utilisation de <strong>Node.js, Angular et Ionic</strong> pour optimiser les processus métier. Mise en œuvre d'architectures full-stack sur mesure."
+      "title": "Développeur Full-Stack | Codetec Servicios Informáticos SL",
+      "description": "En tant que <strong>développeur full-stack</strong> chez Codetec Servicios Informáticos SL, j'ai développé et maintenu des applications en production avec <strong>Nuxt 3</strong>, <strong>Vue 3</strong> et <strong>TypeScript</strong>. J'ai livré un système d'entreprise de <strong>suivi du temps et de pointage</strong>, une application de <strong>gestion de flotte de camions en temps réel</strong> et une boutique <strong>e-commerce de merchandising</strong> avec intégration d'une passerelle de paiement. J'ai aussi travaillé sur des systèmes de gestion, de comptabilité, de facturation et de logistique, en frontend et backend, avec Vue.js, Ionic, Angular, Node.js et des bases SQL/NoSQL."
     },
     "tesicnor_backend": {
       "date": "Aoû 2024 - Oct 2024",
@@ -78,7 +79,7 @@
   "cta": {
     "contact": "Contact",
     "viewCv": "Voir CV",
-    "cvPath": "/cvs/cv-fr.pdf"
+    "cvPath": "/cvs/mikel-echeverria-cv-fr-fullstack.pdf"
   },
   "projectsSection": {
     "demo": "Voir projet",

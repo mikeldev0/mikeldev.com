@@ -13,7 +13,7 @@ export interface ExperienceItemProps {
   tags?: string[];
 }
 
-const { title, description, date, link, descriptionKey, dateKey, tags } =
+const { title, description, date, link, titleKey, descriptionKey, dateKey, tags } =
   Astro.props as ExperienceItemProps;
 
 // Split title to separate role and company if possible
@@ -32,12 +32,17 @@ const [role, company] = title.includes("|") ? title.split("|").map((s) => s.trim
 
   <div class="flex flex-col">
     <div class="flex flex-col gap-y-1">
-      <h3 class="text-2xl font-bold tracking-tight text-[var(--ink)]">
+      <h3 class="text-2xl font-bold tracking-tight text-[var(--ink)]" data-i18n-role={titleKey}>
         {role}
       </h3>
       {
         company && (
-          <span class="text-sm font-semibold text-[var(--ink-muted)] italic">{company}</span>
+          <span
+            class="text-sm font-semibold text-[var(--ink-muted)] italic"
+            data-i18n-company={titleKey}
+          >
+            {company}
+          </span>
         )
       }
     </div>

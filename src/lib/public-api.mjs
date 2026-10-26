@@ -13,14 +13,14 @@ export const LEGACY_PROFILE_PATH = "/api/profile";
 export const publicProfile = {
   name: "Mikel Echeverria",
   alternateName: "mikeldev",
-  role: "Backend & Full Stack Engineer",
+  role: "Full-Stack Developer",
   location: {
     city: "Pamplona",
     region: "Navarra",
     country: "ES",
   },
   summary:
-    "Backend and full stack engineer focused on API architecture, scalable web systems, automation, and applied artificial intelligence.",
+    "Full-Stack Developer working with Laravel (PHP), Vue.js, Nuxt, React and Next.js. Production work includes Nuxt 3 and Vue 3 applications for time tracking, real-time truck fleet management and merchandising e-commerce.",
   url: "https://www.mikeldev.com/",
   email: "mikel@mikeldev.com",
   resources: {
@@ -343,7 +343,10 @@ export const openApiDocument = {
             headers: successRateLimitHeaders(),
             content: {
               "application/json": {
-                schema: { ...resourcesResponseSchema, $ref: "#/components/schemas/ResourcesResponse" },
+                schema: {
+                  ...resourcesResponseSchema,
+                  $ref: "#/components/schemas/ResourcesResponse",
+                },
               },
             },
           },

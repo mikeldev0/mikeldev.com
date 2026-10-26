@@ -139,11 +139,18 @@ pnpm build
 
 ## CV downloads
 
-Updated Swiss-market CVs, available as one-page A4 PDFs:
+One-page Swiss-market PDFs in `public/cvs/`. The homepage CV button uses the full-stack file for the selected language:
 
-- [English CV](./public/cvs/cv-en.pdf)
-- [Spanish CV](./public/cvs/cv-es.pdf)
-- [Swiss Standard German CV](./public/cvs/cv-de.pdf)
-- [Swiss French CV](./public/cvs/cv-fr.pdf)
-- [Swiss Italian CV](./public/cvs/cv-it.pdf)
-- [Rumantsch Grischun CV](./public/cvs/cv-rm.pdf)
+- [English](./public/cvs/mikel-echeverria-cv-en-fullstack.pdf)
+- [Spanish](./public/cvs/mikel-echeverria-cv-es-fullstack.pdf)
+- [Swiss Standard German](./public/cvs/mikel-echeverria-cv-de-fullstack.pdf)
+- [Swiss French](./public/cvs/mikel-echeverria-cv-fr-fullstack.pdf)
+- [Swiss Italian](./public/cvs/mikel-echeverria-cv-it-fullstack.pdf)
+
+Also published, without a separate homepage button:
+
+- [English, software developer](./public/cvs/mikel-echeverria-cv-en-software-developer.pdf)
+- [Spanish, alternate full-stack layout](./public/cvs/mikel-echeverria-cv-es-fullstack-alt.pdf)
+- [German, backend engineer](./public/cvs/mikel-echeverria-cv-de-backend-engineer.pdf)
+- [French, backend engineer](./public/cvs/mikel-echeverria-cv-fr-backend-engineer.pdf)
+- [Rumantsch Grischun, full-stack](./public/cvs/mikel-echeverria-cv-rm-fullstack.pdf)
